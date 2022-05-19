@@ -1,134 +1,133 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Roboto+Mono:ital,wght@1,100&family=Source+Sans+Pro:wght@300&display=swap');
 
-:root{
-    --colorNaranja: rgba(255,145,77,255);
+:root {
+    --colorNaranja: rgba(255, 145, 77, 255);
+    --colorNegro: #040303;
 }
 
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
 
-body{
-    background-color:#ebebeb;
+body {
+    background-color: #ebebeb;
 }
 
-.grid-container{
+.grid-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 0.4fr auto 0.5fr;
-    grid-template-areas: 
-    "header header header"
-    "main main main"
-    "footer footer footer"
+    grid-template-areas:
+        "header header header"
+        "main main main"
+        "footer footer footer"
     ;
 }
 
-/* ------------------- BARRA DE NAVEGACION -------------------*/
-
-.header{
+/* ----------------------------------------------------- BARRA DE NAVEGACION -----------------------------------------------------*/
+.header {
     grid-area: header;
+    background-color: var(--colorNegro);
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    background-color: black;
-    height: 81px;
-    width: 100%;
-    top: 0;
-    position: sticky;
 }
 
-.header figure img{
-    width: 200px;
-    height: 200px;
+.navbar-nav li a {
+    margin-right: 5px;
+    font-family: 'Poppins', sans-serif;
 }
 
-.header nav ul{
-    display: flex;
-    list-style: none;
+.header img {
+    width: 93px;
+    height: 50px;
+    margin: 15px 30px;
 }
 
-.header nav ul li{
-    position: relative;
-}
-
-.header nav ul li::before{
-    content: "";
-    height: 3px;
-    width: 0%;
-    background: rgba(255,145,77,255);
-    position: absolute;
-    left: 0;
-    bottom: -8px;
-    transition: 0.4s ease-out;
-}
-
-.header nav ul li:hover::before{
-    width: 100%;
-}
-
-.header nav ul li a{
-    text-decoration: none;
-    border: 1px solid black;
+#link-a-navbar {
     color: white;
-    margin: 10px;
 }
 
-.header nav ul li .categorias{
+#link-a-navbar-categorias {
     color: var(--colorNaranja);
 }
 
-/* ------------------- BODY ------------------- */
-/* -----INDEX----- */
-.main{
+.header nav ul li {
+    position: relative;
+}
+
+.header nav ul li a::before {
+    content: "";
+    height: 2px;
+    width: 0%;
+    background: rgba(255, 145, 77, 255);
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    transition: 0.2s ease-out;
+}
+
+.header nav ul li a:hover::before {
+    width: 100%;
+}
+
+/* ----------------------------------------------------------- BODY ----------------------------------------------------------- */
+/* ------------------------INDEX------------------------ */
+.main {
     grid-area: main;
 }
 
-.portada{
-    background-image: linear-gradient(rgba(255,255,255,0.20), rgba(0,0,0,0.500)), url(../img/portada.jpg);
+.portada {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.20), rgba(0, 0, 0, 0.500)), url(../img/portada.jpg);
     width: 100%;
     height: 90vh;
     flex-wrap: nowrap;
     background-position: bottom;
-    background-repeat: no-repeat; 
+    background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.portada h1{
+.portada h1 {
     display: flex;
     color: white;
     font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 900;
     font-size: 80px;
 }
 
-.portada .textoArriba{
+.portada .textoArriba {
     color: var(--colorNaranja);
+    margin-bottom: -10px;
+    font-weight: bold;
 }
 
-.portada .textoAbajo{
+.portada .textoAbajo {
     color: white;
+    font-weight: bold;
 }
 
-.portada a{
+.portada a {
     text-decoration: none;
     color: white;
     text-align: center;
-    padding: 5px;
-    background-color: rgba(255,145,77,255);
+    padding: 8px;
+    background-color: var(--colorNaranja);
     margin-top: 10px;
     transition: 0.5s;
+    font-weight: bold;
 }
-.portada a:hover{
+
+.portada a:hover {
     transform: scale(0.93);
 }
 
-.rebajas{
+.rebajas {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -138,7 +137,7 @@ body{
     padding-bottom: 3%;
 }
 
-.rebajas > div{
+.rebajas>div {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -152,138 +151,240 @@ body{
     border-style: ridge;
 }
 
-.rebajas .cajones{
-    background-image: linear-gradient(rgba(255,255,255,0.01), rgba(0,0,0,0.500)), url(../img/cajon.jpg);
+.rebajas .cajones {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.01), rgba(0, 0, 0, 0.500)), url(../img/cajon.jpg);
     background-size: cover;
 }
 
-.rebajas .mesas{
-    background-image: linear-gradient(rgba(255,255,255,0.01), rgba(0,0,0,0.500)), url(../img/mesa.webp);
+.rebajas .mesas {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.01), rgba(0, 0, 0, 0.500)), url(../img/mesa.webp);
     background-size: cover;
 }
 
-.rebajas h2{
+.rebajas h2 {
     color: white;
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 30px;
+    font-weight: 600;
 }
 
-.rebajas a{
+.rebajas a {
     text-decoration: none;
     font-size: 15px;
+    font-weight: 600;
     color: white;
     position: bottom;
-    padding: 3px;
+    padding: 8px;
     background-color: var(--colorNaranja);
-    margin-top: 10px;
+    margin-top: 1px;
     transition: 0.5s;
 }
 
-.rebajas a:hover{
+.rebajas a:hover {
     transform: scale(0.93);
 }
 
-.carruselIngresados{
-    padding-top: 20px;
-    display: flex;
-    justify-content: center;
-    flex-flow: wrap;
+.carrusel-index {
+    padding: 0px 25px;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
 }
 
-.carruselIngresados > div{
-    flex-wrap: wrap;
-    width: 300px;
-    height: 250px;
-    background-size:contain;
-    background-repeat: no-repeat;
-    background-position: center;
+.carrusel-index p {
     background-color: white;
-    border: 0.5px solid white;
-    margin: 5px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px 0.5px ghostwhite;
-    padding: 2px;
-}
-
-.recienIngresados h2{
     color: gray;
-    font-family: 'Source Sans Pro', sans-serif;
-    margin-left: 4px;
+    text-align: center;
+    margin-top: 12px;
 }
 
-.carruselIngresados .item-carrusel-1{
-    background-image: url("../img/carruselRecienIngresados/reloj.jpg");
+.descripcion-carrusel{
+    background-color: white;
+    width: 95%;
+    border-top: 1px solid rgba(51, 51, 51, .1);
 }
 
-.carruselIngresados .item-carrusel-2{
-    background-image: url("../img/carruselRecienIngresados/silla\ minimalista.jpg");
+.carrusel-index a {
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    background-color: var(--colorNaranja);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.carruselIngresados .item-carrusel-3{
-    background-image: url("../img/carruselRecienIngresados/sillon\ individual.jpg");
+.carrusel-index ul {
+    display: flex;
+    animation: velocidad-carrusel-index 60s infinite alternate linear;
+    width: 400%;
 }
 
-.carruselIngresados .item-carrusel-4{
-    background-image: url("../img/carruselRecienIngresados/set\ mesa.webp");
+.carrusel-index li {
+    width: 50%;
+    list-style: none;
 }
 
-/* -----DESTACADOS----- */
+.carrusel-index img {
+    width: 300px;
+    height: 300px;
+    display: block;
+    cursor: pointer;
+    margin-right: 15px;
+}
 
-.mainDestacados{
+@keyframes velocidad-carrusel-index {
+    0% {
+        margin-left: 0%;
+    }
+
+    10% {
+        margin-left: -10%;
+    }
+
+    20% {
+        margin-left: -20%;
+    }
+
+    40% {
+        margin-left: -40%;
+    }
+
+    50% {
+        margin-left: -50%;
+    }
+
+    70% {
+        margin-left: -70%;
+    }
+
+    90% {
+        margin-left: -90%;
+    }
+
+    100% {
+        margin-left: -100%;
+    }
+}
+
+
+/* ------------------------DESTACADOS------------------------ */
+
+.mainDestacados {
     grid-area: main;
 }
 
-.containerDestacados{
+.container-main-destacados {
     width: 100%;
-    max-width: 100%;
-    margin: auto;
+    max-width: 1100px;
+    margin:auto;
     margin-top: 60px;
     margin-bottom: 60px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 500px 500px 500px;
+    grid-template-rows: repeat(4, 320px);
     grid-gap: 20px;
 }
 
-.containerDestacados .galeriaDestacados div{
+.container-main-destacados .box-img-destacados figure {
     width: 100%;
     height: 100%;
-    background-size:contain;
-    background-repeat: no-repeat;
-    background-position: center;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 6px;
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.20);
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
 }
 
-.imagenDestacados1{
-    background-image: url("../img/imagenesDestacados/683765007622_1.png");
+.container-main-destacados .box-img-destacados img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
-.imagenDestacados2{
-    background-image: url("../img/imagenesDestacados/aparador.jpg");
+
+.box-img-destacados>figure::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.80);
+    transform: scaleX(0);
+    transition: transform .4s;
 }
-.imagenDestacados3{
-    background-image: url("../img/imagenesDestacados/biblioteca.jpg");
+
+.box-img-destacados>figure:hover::before {
+    transform: scaleX(1);
+    content: "";
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+    text-shadow: 10px;
+    text-align: center;
+    display: flex;
+    padding: 0 1rem;
+    flex-direction: column;
+    justify-content: center;
 }
-.imagenDestacados4{
-    background-image: url("../img/imagenesDestacados/cajonesMinimalistas.jpg");
+
+.box-img-destacados>.destacados-imagen1:hover::before {
+    content: "Sillon @Royal, cubierto de cuero 100% sintetico. Su confortabilidad y comodidad, ofrecen una experiencia unica.";
 }
-.imagenDestacados5{
-    background-image: url("../img/imagenesDestacados/mesaFlotante.jpg");
+
+.box-img-destacados>.destacados-imagen2:hover::before {
+    content: "Aparador pequeño, originalmente diseñado para habitaciones o salas de estar.";
 }
-.imagenDestacados6{
-    background-image: url("../img/imagenesDestacados/mesita.jpg");
+
+.box-img-destacados>.destacados-imagen3:hover::before {
+    content: "Biblioteca de madera, ideal para salas con diseño minimalista.";
 }
-.imagenDestacados7{
-    background-image: url("../img/imagenesDestacados/mueblesBlanco.jpg");
+
+.box-img-destacados>.destacados-imagen4:hover::before {
+    content: "Set de living completo, listo para darle a tu casa un toque sobrio y elegante. ";
 }
-.imagenDestacados8{
-    background-image: url("../img/imagenesDestacados/repisas.jpg");
+
+.box-img-destacados>.destacados-imagen5:hover::before {
+    content: "Mesa ratona @Bambú, pensada para todo tipo de usos y ambientes.";
 }
-.imagenDestacados9{
-    background-image: url("../img/imagenesDestacados/muebleBlancoMinimal.jpg");
+
+.box-img-destacados>.destacados-imagen6:hover::before {
+    content: "Aparador @Natural, diseñado artesanalmente y con elementos 100% reciclados.";
+}
+
+.box-img-destacados>.destacados-imagen7:hover::before {
+    content: "Sillon gama @Nova. Posee un tapizado que te brinda máxima durabilidad, resistencia y es muy agradable al tacto.";
+}
+
+.box-img-destacados>.destacados-imagen8:hover::before {
+    content: "Sofá de oficina, fabricado con materiales nobles y de alta resistencia, permiten un uso intensivo diario sin problemas.";
+}
+
+.container-main-destacados .box-img-destacados:nth-child(1) {
+    grid-column-start: span 2;
+}
+
+.container-main-destacados .box-img-destacados:nth-child(3) {
+    grid-row-start: span 2;
+}
+
+.container-main-destacados .box-img-destacados:nth-child(4) {
+    grid-column-start: span 2;
+}
+
+.container-main-destacados .box-img-destacados:nth-child(8) {
+    grid-column-start: span 2;
+}
+
+.container-main-destacados .box-img-destacados .imagen-living-destacados {
+    object-position: bottom;
 }
 
 
 /* ------------------- FOOTER ------------------- */
-.footer{
+.footer {
     grid-area: footer;
     display: flex;
     justify-content: space-between;
@@ -291,43 +392,42 @@ body{
     width: 100%;
     bottom: 100;
     height: 250px;
-    margin-top: 100px;
 }
 
-.footer ul{
+.footer ul {
     display: flex;
     list-style: none;
 }
 
-.footer ul li a{
+.footer ul li a {
     text-decoration: none;
     padding: 15px;
 }
 
-.footer h3{
+.footer h3 {
     color: white;
 }
 
-.footer .newsletter{
+.footer .newsletter {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #040303;
+    background-color: var(--colorNegro);
     width: 33%;
     border-right: 1px solid grey;
 }
 
-.footer ul{
+.footer ul {
     display: flex;
     justify-content: start;
     align-items: center;
     list-style: none;
-    background-color: #040303;
+    background-color: var(--colorNegro);
     width: 67%;
     height: 100%;
 }
 
-.footer ul li a{
+.footer ul li a {
     text-decoration: none;
     color: white;
 }
@@ -339,114 +439,205 @@ body{
     align-items: center;
 }
 
-.footer .iconosFooter i{
+.footer .iconosFooter i {
     text-decoration: none;
     list-style: none;
     color: white;
 }
 
-.footer .iconosFooter i:hover{
+.footer .iconosFooter i:hover {
     color: var(--colorNaranja);
     transition: 0.5s ease-out;
 }
 
-.carruselIngresados > div:hover{
-    box-shadow: 0 0 10px rgba(0 , 0, 0, 0.20);
+.carruselIngresados>div:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.20);
 }
 
 /* ------------------- MEDIA QUERIES ------------------- */
 
-@media screen and (max-width:816px) {
-    
-    .header{
+@media screen and (max-width:991px) {
+    .header {
         flex-direction: column;
         align-items: center;
         height: auto;
         position: relative;
     }
 
-    .header nav ul{
+    .header nav ul {
         flex-direction: column;
     }
 
-    .header nav ul li{
+    .header nav ul li {
         display: flex;
         width: 100vw;
     }
 
-    .header figure img{
+    .header nav ul li {
+        margin-top: 4px;
+    }
+
+    .header figure img {
         width: 190px;
         height: 190px;
     }
 
-    .header nav ul li a{
-        padding: 2px;
-        background-color:rgba(255,145,77,255);
+    .header nav ul li a {
+        padding: 5px;
+        background-color: rgba(255, 145, 77, 255);
         width: 100%;
         text-align: center;
-        border-radius: 15px;
     }
-    .header nav ul li a:active{
+
+    .header nav ul li a:active {
         transform: scale(0.97);
     }
 
-    .header nav ul li .categorias{
+    .header nav ul li #link-a-navbar-categorias {
+        background-color: white;
+        color: black;
+    }
+}
+
+@media screen and (max-width:1310px) {
+    .descripcion-carrusel {
+        width: 95%;
+    }
+}
+
+@media screen and (max-width:1138px){
+    .container-main-destacados {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 320px);
+    }
+
+
+    .container-main-destacados .box-img-destacados:nth-child(1) {
+        grid-column-start: span 1;
+    }
+    
+    .container-main-destacados .box-img-destacados:nth-child(3) {
+        grid-row-start: span 1;
+    }
+    
+    .container-main-destacados .box-img-destacados:nth-child(4) {
+        grid-column-start: span 1;
+    }
+    
+    .container-main-destacados .box-img-destacados:nth-child(8) {
+        grid-column-start: span 1;
+    }
+    
+    .container-main-destacados .box-img-destacados .imagen-living-destacados {
+        object-position: bottom;
+    }
+}
+
+@media screen and (max-width:816px) {
+
+    .header {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        position: relative;
+    }
+
+    .header nav ul {
+        flex-direction: column;
+    }
+
+    .header nav ul li {
+        display: flex;
+        width: 100vw;
+    }
+
+    .header nav ul li {
+        margin-top: 4px;
+    }
+
+    .header figure img {
+        width: 190px;
+        height: 190px;
+    }
+
+    .header nav ul li a {
+        padding: 5px;
+        background-color: rgba(255, 145, 77, 255);
+        width: 100%;
+        text-align: center;
+    }
+
+    .header nav ul li a:active {
+        transform: scale(0.97);
+    }
+
+    .header nav ul li #link-a-navbar-categorias {
         background-color: white;
         color: black;
     }
 
-    .portada h1{
+    .portada h1 {
         font-size: 60px;
     }
 
-    .rebajas{
+    .rebajas {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-    .rebajas > div{
+    .rebajas>div {
         width: 400px;
         height: 200px;
     }
 
-    .rebajas h2{
+    .rebajas h2 {
         font-size: 20px;
     }
 
-    .rebajas a{
+    .rebajas a {
         font-size: 10px;
     }
 
-    .recienIngresados h2{
+    .recienIngresados h2 {
         font-size: 25px;
     }
 
-    .carruselIngresados > div{
-        padding-bottom: 2px;
-        display: flex;
-        width: 250px;
+    .carrusel-index img {
+        width: 200px;
         height: 200px;
     }
 
-    .footer{
+    .descripcion-carrusel {
+        width: 93%;
+    }
+
+    .carrusel-index p {
+        font-size: 15px;
+    }
+
+    .carrusel-index ul {
+        animation: velocidad-carrusel-index 30s infinite alternate linear;
+    }
+
+    .footer {
         flex-direction: column;
         justify-content: center;
         height: auto;
     }
 
-    .footer ul{
+    .footer ul {
         padding-top: 1%;
         flex-direction: column;
         justify-content: center;
         width: 100%;
     }
 
-    .footer ul li{
+    .footer ul li {
         display: flex;
     }
 
-    .footer .newsletter{
+    .footer .newsletter {
         padding-top: 1%;
         width: auto;
     }
@@ -458,39 +649,35 @@ body{
         padding-top: 2%;
         padding-bottom: 3%;
     }
- }
+}
 
-
- @media screen and (max-width:620px) {
-     .galeriaDestacados{
+@media screen and (max-width:620px) {
+    .galeriaDestacados {
         padding-top: 5px;
         width: 100%;
-     }
+    }
 
-    .galeriaDestacados > div{
+    .galeriaDestacados>div {
         width: 250px;
         height: 250px;
     }
- }
+}
 
 
- @media screen and (max-width:480px){
-    .portada h1{
+@media screen and (max-width:480px) {
+    .portada h1 {
         font-size: 40px;
     }
 
-    .rebajas > div{
+    .rebajas>div {
         width: 350px;
         height: 175px;
     }
 }
 
 
-@media screen and (max-width:417px){
-    .portada .textoAbajo{
+@media screen and (max-width:417px) {
+    .portada .textoAbajo {
         text-align: center;
     }
 }
-
-
-
