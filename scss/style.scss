@@ -5,6 +5,7 @@
 :root {
     --colorNaranja: rgba(255, 145, 77, 255);
     --colorNegro: #040303;
+    --colorBody: #ebebeb;
 }
 
 * {
@@ -15,7 +16,7 @@
 }
 
 body {
-    background-color: #ebebeb;
+    background-color: var(--colorBody);
 }
 // -------------------------------EXTEND
 .botonGeneral{
@@ -548,8 +549,7 @@ body {
 .renglon-nosotros .imagen-nosotros div{
     margin: auto;
     margin-top: 9%;
-    width: 80%;
-    height: 80%;
+    @include alto-ancho(80%, 80%);
     background-position: center;
     background-size: cover;
 }
@@ -583,14 +583,208 @@ body {
     background-image: url(../img/nosotros/banderas-2020.jpg);
 }
 
-
-
-
-
-
-
-
-
+/* ------------------- FEEDBACK ------------------- */
+  
+  .background {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  .container {
+    flex: 0 1 700px;
+    margin: auto;
+    padding: 10px;
+  }
+  
+  .screen {
+    position: relative;
+    background: #3e3e3e;
+    border-radius: 5px;
+  }
+  
+  .screen:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    right: 20px;
+    bottom: 0;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .4);
+    z-index: -1;
+  }
+  
+  .screen-header {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background: #4d4d4f;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+  
+  .screen-header-left {
+    margin-right: auto;
+  }
+  
+  .screen-header-button {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 3px;
+    border-radius: 8px;
+    background: var(--colorBody);
+  }
+  
+  .screen-header-button.close {
+    background: black;
+  }
+  
+  .screen-header-button.maximize {
+    background: var(--colorNaranja);
+  }
+  
+  .screen-header-button.minimize {
+    background: black;
+  }
+  
+  .screen-header-right {
+    display: flex;
+  }
+  
+  .screen-header-ellipsis {
+    width: 3px;
+    height: 3px;
+    margin-left: 2px;
+    border-radius: 8px;
+    background: #999;
+  }
+  
+  .screen-body {
+    display: flex;
+  }
+  
+  .screen-body-item {
+    flex: 1;
+    padding: 50px;
+  }
+  
+  .screen-body-item.left {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .app-title {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    color: var(--colorNaranja);
+    font-size: 26px;
+  }
+  
+  .app-title:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 25px;
+    height: 4px;
+    background: var(--colorNaranja);
+  }
+  
+  .app-contact {
+    margin-top: auto;
+    font-size: 8px;
+    color: #888;
+  }
+  
+  .app-form-group {
+    margin-bottom: 15px;
+  }
+  
+  .app-form-group.message {
+    margin-top: 40px;
+  }
+  
+  .app-form-group.buttons {
+    margin-bottom: 0;
+    text-align: right;
+  }
+  
+  .app-form-control {
+    width: 100%;
+    padding: 10px 0;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #666;
+    color: #ddd;
+    font-size: 14px;
+    text-transform: uppercase;
+    outline: none;
+    transition: border-color .2s;
+  }
+  
+  .app-form-control::placeholder {
+    color: #666;
+  }
+  
+  .app-form-control:focus {
+    border-bottom-color: #ddd;
+  }
+  
+  .app-form-button {
+    background: none;
+    border: none;
+    margin-right: 5px;
+    color: var(--colorNaranja);
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .app-form-button:hover {
+    font-size: 15px;
+  }
+  
+  .dribbble {
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+  }
+  
+  @media screen and (max-width: 520px) {
+    .screen-body {
+      flex-direction: column;
+    }
+  
+    .screen-body-item.left {
+      margin-bottom: 30px;
+    }
+  
+    .app-title {
+      flex-direction: row;
+    }
+  
+    .app-title span {
+      margin-right: 12px;
+    }
+  
+    .app-title:after {
+      display: none;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .screen-body {
+      padding: 40px;
+    }
+  
+    .screen-body-item {
+      padding: 0;
+    }
+  }
 /* ------------------- FOOTER ------------------- */
 footer{
     grid-area: footer;
@@ -747,6 +941,31 @@ footer .social-link-footer:nth-of-type(3){
     
 }
 
+
+@media (max-width:1084px){
+    .renglon-nosotros .imagen-nosotros{
+        width: 40%;
+    }
+    
+    .renglon-nosotros .titulo-texto-nosotros{
+        width: 40%;
+    }
+
+    .renglon-nosotros .imagen-nosotros div{
+        margin-top: 5%;
+    }
+}
+
+@media (max-width:1013px){
+    .renglon-nosotros .div-numero-nosotros p{
+        font-size: 45px;
+        margin-top: 30%;
+    }
+    .renglon-nosotros .titulo-texto-nosotros .texto-nosotros p{
+        font-size: small;
+    }
+}
+
 @media (max-width: 1000px){
     
     .footer-container{
@@ -875,6 +1094,11 @@ footer .social-link-footer:nth-of-type(3){
     }
 }
 
+@media (max-width:837px){
+    .renglon-nosotros .div-numero-nosotros p{
+        margin-top: 38%;
+    }
+}
 
 @media screen and (max-width:816px) {
 
@@ -961,6 +1185,12 @@ footer .social-link-footer:nth-of-type(3){
     }
 }
 
+@media (max-width:686px){
+    .renglon-nosotros .div-numero-nosotros p{
+        margin-top: 45%;
+    }
+}
+
 
 @media screen and (max-width:620px) {
     .galeriaDestacados {
@@ -970,6 +1200,19 @@ footer .social-link-footer:nth-of-type(3){
 
     .galeriaDestacados>div {
         @include alto-ancho(250px, 250px);
+    }
+}
+
+@media (max-width:610px){
+    .renglon-nosotros .titulo-texto-nosotros .texto-nosotros p{
+        font-size: 10px;
+    }
+}
+
+@media (max-width:521px){
+    .renglon-nosotros .div-numero-nosotros p{
+        font-size: 35px;
+        margin-top: 65%;
     }
 }
 
