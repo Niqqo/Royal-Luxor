@@ -40,7 +40,7 @@ body {
       grid-template-columns: 1fr 1fr 1fr;
   -ms-grid-rows: 0.4fr auto 0.5fr;
       grid-template-rows: 0.4fr auto 0.5fr;
-      grid-template-areas: "header header header" "main main main" "footer footer footer";
+      grid-template-areas: "header header header" "main main main" "footer footer footer";
 }
 
 .header {
@@ -1110,8 +1110,8 @@ footer .social-link-footer:nth-of-type(3) {
     width: 95%;
     -ms-grid-columns: (1fr)[2];
         grid-template-columns: repeat(2, 1fr);
-    -ms-grid-rows: (420px)[8];
-        grid-template-rows: repeat(8, 420px);
+    -ms-grid-rows: (420px)[6];
+        grid-template-rows: repeat(6, 420px);
   }
   .container-main-destacados .box-img-destacados:nth-child(1) {
     -ms-grid-column: span 2;
