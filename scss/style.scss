@@ -6,6 +6,7 @@
     --colorNaranja: rgba(255, 145, 77, 255);
     --colorNegro: #040303;
     --colorBody: #ebebeb;
+    --colorGris: #8A8A8A;
 }
 
 * {
@@ -18,7 +19,7 @@
 body {
     background-color: var(--colorBody);
 }
-// -------------------------------EXTEND
+
 .botonGeneral{
     text-decoration: none;
     color: white;
@@ -29,12 +30,11 @@ body {
     transition: 0.5s;
     font-weight: bold;
 }
-// -------------------------------MIXIN
+
 @mixin alto-ancho ($height, $width){
         width: $width;
         height: $height;
 }
-
 
 .grid-container {
     display: grid;
@@ -47,7 +47,7 @@ body {
     ;
 }
 
-/* ----------------------------------------------------- HEADER -----------------------------------------------------*/
+
 .header {
     grid-area: header;
     background-color: var(--colorNegro);
@@ -91,7 +91,6 @@ body {
     width: 100%;
 }
 
-/* ----------------------------------------------------------- BODY ----------------------------------------------------------- */
 
 /* ------------------------INDEX------------------------ */
 .main {
@@ -100,10 +99,11 @@ body {
 
 .portada {
     background-image: linear-gradient(rgba(255, 255, 255, 0.20), rgba(0, 0, 0, 0.900)), url(../img/Portada/portada.jpg);
-    @include alto-ancho(90vh, 100%);
+    @include alto-ancho(500px, 100%);
     flex-wrap: nowrap;
     background-position: bottom;
     background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -325,11 +325,20 @@ body {
     grid-area: main;
 }
 
+#div-boton-ingresados{
+    margin-top: 20px;
+}
+
+#div-boton-ingresados button{
+    font-size: 30px;
+}
+
+
 .container-main-destacados {
     width: 100%;
     max-width: 1100px;
     margin: auto;
-    margin-top: 60px;
+    margin-top: 20px;
     margin-bottom: 60px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -452,6 +461,7 @@ body {
 
 .owl-container .titulo{
     text-align: center;
+    margin-top: 20px;
 }
 
 .div-carrusel-ofertas{
@@ -479,7 +489,10 @@ body {
 .descripcion-carrusel-ofertas{
     background-color: white;
     width: 100%;
+    height: 150px;
     border-top: 1px solid rgba(51, 51, 51, .1);
+    display: flex;
+    flex-direction: column;
 }
 
 .descripcion-carrusel-ofertas p{
@@ -501,8 +514,8 @@ body {
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    margin-top: 5px;
+    justify-content: flex-end;
+    margin-top: auto;
 }
 
 .descripcion-carrusel-ofertas .container-xl span{
@@ -591,7 +604,7 @@ body {
   }
   
   .container {
-    flex: 0 1 700px;
+    flex: 0 1 900px;
     margin: auto;
     padding: 10px;
   }
@@ -696,8 +709,8 @@ body {
   
   .app-contact {
     margin-top: auto;
-    font-size: 8px;
-    color: #888;
+    font-size: 15px;
+    color: var(--colorGris);
   }
   
   .app-form-group {
@@ -718,7 +731,7 @@ body {
     padding: 10px 0;
     background: none;
     border: none;
-    border-bottom: 1px solid #666;
+    border-bottom: 1px solid var(--colorGris);
     color: #ddd;
     font-size: 14px;
     text-transform: uppercase;
@@ -727,7 +740,7 @@ body {
   }
   
   .app-form-control::placeholder {
-    color: #666;
+    color: #8A8A8A;
   }
   
   .app-form-control:focus {
@@ -754,37 +767,6 @@ body {
     margin: 0 5px;
   }
   
-  @media screen and (max-width: 520px) {
-    .screen-body {
-      flex-direction: column;
-    }
-  
-    .screen-body-item.left {
-      margin-bottom: 30px;
-    }
-  
-    .app-title {
-      flex-direction: row;
-    }
-  
-    .app-title span {
-      margin-right: 12px;
-    }
-  
-    .app-title:after {
-      display: none;
-    }
-  }
-  
-  @media screen and (max-width: 600px) {
-    .screen-body {
-      padding: 40px;
-    }
-  
-    .screen-body-item {
-      padding: 0;
-    }
-  }
 /* ------------------- FOOTER ------------------- */
 footer{
     grid-area: footer;
@@ -844,7 +826,7 @@ footer .website-logo{
     padding-left: 1px;
     color: white;
     text-decoration: none;
-    transition: 0.3s;
+    transition: 0.1s;
 }
 
 .menu-item-footer:hover{
@@ -904,8 +886,6 @@ footer .social-link-footer:nth-of-type(3){
 
 /* --------------------------------------------------------- MEDIA QUERIES --------------------------------------------------------- */
 
-
-
 @media screen and (max-width:1310px) {
     .descripcion-carrusel {
         width: 95%;
@@ -940,7 +920,6 @@ footer .social-link-footer:nth-of-type(3){
     }
     
 }
-
 
 @media (max-width:1084px){
     .renglon-nosotros .imagen-nosotros{
@@ -1018,7 +997,6 @@ footer .social-link-footer:nth-of-type(3){
 @media screen and (max-width:991px) {
     .header {
         flex-direction: column;
-        justify-content: space-between;
         align-items: center;
         height: auto;
         position: relative;
@@ -1027,19 +1005,16 @@ footer .social-link-footer:nth-of-type(3){
     .header nav ul li {
         display: flex;
         width: 99vw;
-    }
-
-    .header nav ul li {
         margin-top: 4px;
     }
 
-    .header figure img {
-        @include alto-ancho(190px, 190px);
+    .container-fluid button{
+        transition: 50s;
     }
 
     .header nav ul li a {
         padding: 5px;
-        background-color: rgba(255, 145, 77, 255);
+        background-color: var(--colorNaranja);
         width: 100%;
         text-align: center;
     }
@@ -1048,9 +1023,8 @@ footer .social-link-footer:nth-of-type(3){
         transform: scale(0.97);
     }
 
-    .header nav ul li #link-a-navbar-categorias {
-        background-color: white;
-        color: black;
+    .header nav ul li #link-a-navbar-inicio {
+        color: white;
     }
 }
 
@@ -1207,19 +1181,50 @@ footer .social-link-footer:nth-of-type(3){
     .renglon-nosotros .titulo-texto-nosotros .texto-nosotros p{
         font-size: 10px;
     }
+
+    .screen-body {
+        padding: 40px;
+      }
+    
+      .screen-body-item {
+        padding: 0;
+      }
 }
 
-@media (max-width:521px){
+@media screen and (max-width: 520px) {
     .renglon-nosotros .div-numero-nosotros p{
         font-size: 35px;
         margin-top: 65%;
     }
-}
 
+    .screen-body {
+      flex-direction: column;
+    }
+  
+    .screen-body-item.left {
+      margin-bottom: 30px;
+    }
+  
+    .app-title {
+      flex-direction: row;
+    }
+  
+    .app-title span {
+      margin-right: 12px;
+    }
+  
+    .app-title:after {
+      display: none;
+    }
+  }
 
 @media screen and (max-width:480px) {
     .portada h1 {
         font-size: 40px;
+    }
+
+    .portada .textoArriba{
+        margin-bottom: 1px;
     }
 
     .rebajas>div {
@@ -1227,6 +1232,12 @@ footer .social-link-footer:nth-of-type(3){
     }
 }
 
+@media screen and (max-width:440px){
+    .div-numero-nosotros p{
+        writing-mode: vertical-lr;
+        text-orientation: sideways;
+    }
+}
 
 @media screen and (max-width:417px) {
     .portada .textoAbajo {
@@ -1234,15 +1245,15 @@ footer .social-link-footer:nth-of-type(3){
     }
 }
 
-$colorcito:(
-    cuadrado: red,
-    cuadradoDos: green,
-    cuadradoTres: blue,
-    cuadradoCuatro: purple,
-);
-@each $figure, $color in $colorcito{
-    .cuadrado--#{$figure}{
-        background-color: $color;
+@media screen and (max-width:388px){
+    .renglon-nosotros{
+        height: 240px;
+    }
+}
+
+@media screen and (max-width:371px){
+    .rebajas>div {
+        @include alto-ancho(125px, 250px);
     }
 }
 
